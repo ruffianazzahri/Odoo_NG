@@ -1,0 +1,43 @@
+<odoo>
+    <record id="action_nasi_goreng" model="ir.actions.act_window">
+        <field name="name">Nasi Goreng</field>
+        <field name="res_model">nasi.goreng</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="view_nasi_goreng_tree" model="ir.ui.view">
+        <field name="name">nasi.goreng.tree</field>
+        <field name="model">nasi.goreng</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="price"/>
+                <field name="spicy_level"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_nasi_goreng_form" model="ir.ui.view">
+        <field name="name">nasi.goreng.form</field>
+        <field name="model">nasi.goreng</field>
+        <field name="arch" type="xml">
+            <form string="Nasi Goreng">
+                <header>
+                    <button name="create" type="object" string="Add" attrs="{'invisible': [('id', '!=', False)]}"/>
+                    <button name="write" type="object" string="Edit" attrs="{'invisible': [('id', '=', False)]}"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="price"/>
+                        <field name="ingredients"/>
+                        <field name="spicy_level"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <menuitem id="menu_nasi_goreng_root" name="Nasi Goreng" sequence="10"/>
+    <menuitem id="menu_nasi_goreng" name="Daftar Nasi Goreng" parent="menu_nasi_goreng_root" action="action_nasi_goreng"/>
+</odoo>

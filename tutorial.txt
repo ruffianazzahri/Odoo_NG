@@ -1,0 +1,39 @@
+buat modul nasi goreng:
+cd /home/vboxuser/Documents/Odoo/addons
+mkdir nasi_goreng
+cd nasi_goreng
+mkdir models views security
+touch __init__.py __manifest__.py models/__init__.py models/nasi_goreng.py views/nasi_goreng_views.xml security/ir.model.access.csv
+
+buat __manifest__.py
+{
+    'name': 'Nasi Goreng Odoo by Ruffian',
+    'version': '1.0',
+    'summary': 'Menu nasi goreng + CRUD',
+    'description': 'Module untuk mengelola berbagai jenis nasi goreng',
+    'author': 'Ruffian',
+    'depends': ['base'],
+    'data': [
+        'views/nasi_goreng_views.xml',
+        'security/ir.model.access.csv',
+    ],
+    'installable': True,
+    'application': True,
+}
+
+urutan push :
+git init
+git add .
+git commit -m 'update'
+git remote add origin https://github.com/ruffianazzahri/Odoo_NG
+git push -u origin main
+
+
+keluar dari postgresql : \q
+jalankan odoo : ./odoo-bin --addons-path=addons --config=odoo.conf
+cek db postgresql : sudo -u postgres psql -c "\l"
+jalankan postgresql : sudo -u postgres psql
+restart postgresql : sudo systemctl restart postgresql
+update modul : python3 odoo-bin -c /home/vboxuser/Documents/Odoo/odoo.conf -u nasi_goreng --log-level=debug
+
+

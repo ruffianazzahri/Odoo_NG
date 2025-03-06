@@ -4,7 +4,7 @@ venv/
 *.pyc
 *.log
 __pycache__/
-addons/
+
 
 # dotfiles
 .*
